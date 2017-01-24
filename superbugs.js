@@ -7,7 +7,8 @@ d3.playbooks.superbugsMap = ({
   dataUrl,
   geoDataUrl,
   yExtent,
-  legendFormat='.0f',
+  legendFormat,
+  legendUnit
 }) => {
 
   const superbugsMap = d3.playbooks.choroplethMap({
@@ -45,7 +46,7 @@ d3.playbooks.superbugsMap = ({
     getLabel: q => d3.format(legendFormat)(q),
     element: `#superbugs-map__legend--${id}`,
     wrapperTemplate: '<ul name="legend">{body}</ul>',
-    itemTemplate: '<li style="background-color:{color}">{label} %</li>'
+    itemTemplate: `<li style="background-color:{color}">{label} ${legendUnit}</li>`
   })
 
   // initial hilight

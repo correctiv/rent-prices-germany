@@ -8,11 +8,13 @@ A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks-map
 
 `dataSlug`: see available csv files in `./data/` (without `.csv`)
 
-`eudata`: set to `false` to omit
+`eudata`: set to `""` to omit
 
 `yExtent`: fix value range (for coloring) to specified 2-array or set to `false` to let `d3.extent()` do the magic.
 
-`legendFormat`: argument for `d3.format()` to format legend labels or false for `".0f"` as default.
+`legendFormat`: argument for `d3.format()` to format legend labels
+
+`legendUnit`: `"%"` or `"€"` or whatever.
 
 ```json
 {
@@ -22,7 +24,8 @@ A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks-map
   "annotation": "Annotation, like url to source pdf, html allowed",
   "dataSlug": "data_slug",
   "yExtent": "[0, 50]",
-  "legendFormat": ".2f"
+  "legendFormat": ".2f",
+  "legendUnit": "%"
 }
 ```
 
@@ -68,7 +71,8 @@ d3.playbooks.superbugsMap({
   dataUrl: "%path%data/%dataSlug%.csv",
   geoDataUrl: "%path%data/europe.topo.json",
   yExtent: %yExtent%,
-  legendFormat: "%legendFormat%"
+  legendFormat: "%legendFormat%",
+  legendUnit: "%legendUnit%"
 })
 </script>
 ```
