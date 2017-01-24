@@ -18,6 +18,7 @@ d3.playbooks.superbugsMap = ({
     geoDataUrl,
     dataUrl,
     yExtent,
+    color: ['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'],
     nullColor: '#eee',
     responsiveSvg: true,
     isTopojson: true,
