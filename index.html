@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d3-playbooks-maps</title>
+  <link rel="stylesheet" href="./style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <h1>correctiv superbugs</h1>
+
+  <section class="superbugs-map-wrapper">
+    <section class="superbugs-map" id="superbugs-map--17"></section>
+    <section class="superbugs-map__legend" id="superbugs-map__legend--17"></section>
+    <section class="superbugs-map__info-wrapper" id="superbugs-map__info-wrapper--17">
+      <section class="superbugs-map__selector" id="superbugs-map__selector--17"></section>
+      <section class="superbugs-map__infobox" id="superbugs-map__infobox--17"></section>
+    </section>
+  </section>
+
+
+  <script src="./lib/d3.v4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/topojson.v2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.maps.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./superbugs.min.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+    d3.playbooks.superbugsMap({
+      id: 17,
+      title: "Single Rooms",
+      description: "Median percentage of single-room beds among the total number of hospital beds",
+      eudata: false,
+      annotation: "<a href='http://ecdc.europa.eu/en/publications/_layouts/forms/Publication_DispForm.aspx?List=4f55ad51-4aed-4d32-b960-af70113dbb90&ID=865'>ECDC Surveillance Report: Point prevalence survey of healthcare-associated infections and antimicrobial use in European acute care hospitals 2011-2012</a>",
+      dataUrl: "./data/single_rooms.csv",
+      yExtent: false,
+      legendFormat: ".1f"
+    })
+  </script>
+
+</body>
+</html>
