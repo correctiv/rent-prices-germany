@@ -13,7 +13,7 @@ d3.playbooks.superbugsMap = ({
 
   const superbugsMap = d3.playbooks.choroplethMap({
     width: 800,
-    height: 800,
+    height: 700,
     elementId: `superbugs-map--${id}`,
     cssNamespace: 'superbugs-map',
     geoDataUrl,
@@ -24,6 +24,7 @@ d3.playbooks.superbugsMap = ({
     responsiveSvg: true,
     isTopojson: true,
     topojsonLayerName: 'europe_clipped',
+    projection: d3.geoConicConformal(),
     getId: f => f.properties.iso_a2,
     drawExtra: M => {
       const cyprus = M.data.find(d => d.iso_a2 === 'CY')
