@@ -7,7 +7,7 @@ $min-width: 992px;
   width: 100%;
 
   @media (min-width: $min-width) {
-    padding-top: 200px;  // leave space for infobox
+    padding-top: 100px;  // leave space for infobox
   }
 
   .superbugs-map {
@@ -75,7 +75,7 @@ $min-width: 992px;
       position: absolute;
       top: 22px;
       left: 22px;
-      width: 30%;
+      width: 50%;
       margin: 0;
       background-color: #fff;
 
