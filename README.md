@@ -65,7 +65,9 @@ d3.playbooks.superbugsMap({
     description: "%description%",
     eudata: "%eudata%",
     annotation: "%annotation%",
-    dataUrl: "./data/%dataSlug%.csv"
+    dataUrl: "./data/%dataSlug%.csv",
+    yExtent: %yExtent%,
+    legendFormat: %legendFormat%
 })
 </script>
 ```
