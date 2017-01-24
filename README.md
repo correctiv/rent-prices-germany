@@ -88,7 +88,7 @@ d3.playbooks.superbugsMap({
 
 ## development / build
 
-**build deps**
+**install build deps**
 
 `npm install babel-cli babel-preset-es2015 uglify-js`
 
