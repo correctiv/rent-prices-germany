@@ -21,7 +21,7 @@
 
         &.-hilight {
 
-          stroke-width: 1;
+          stroke-width: 2px;
           stroke: #fff;
           opacity: 1;
         }
@@ -83,9 +83,25 @@
 
   .superbugs-map__infobox {
 
+    h3, h4 {
+      line-height: 100%;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-family: Georgia, Times, "Times New Roman", serif;
+      font-weight: normal;
+      padding-left: 2px;
+      font-size: 20px;
+    }
+
     p {
 
       color: .555;
+
+      &.infobox__description {
+        font-size: 15px;
+      }
 
       &.infobox__annotation {
         font-size: 12px;
@@ -93,7 +109,7 @@
       }
 
       &.infobox__data {
-        font-size: 20px;
+        font-size: 15px;
       }
 
     }
@@ -110,7 +126,6 @@
     font-size: 20px;
 
     option {
-
       padding-left: 0;
       margin-left: 0;
     }

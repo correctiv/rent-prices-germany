@@ -32,15 +32,15 @@ d3.playbooks.superbugsMap = ({
   superbugsMap.render().infobox({
     element: `#superbugs-map__infobox--${id}`,
     template: `
-      <h3>{name}</h3>
-      <p class="infobox__data">{display_value}</p>
+      <h3>{display_value}</h3>
       <h4>${title}</h4>
-      <p class="infobox__subtitle">${description}</p>
+      <p class="infobox__description">${description}</p>
       ${euDataTempl}
       <p class="infobox__annotation">${annotation}</p>
     `
   }).selector({
     element: `#superbugs-map__selector--${id}`,
+    // getLabel: f => f.display_value ? `${f.name}: ${f.display_value}` : f.name
     getLabel: f => f.name
   }).legend({
     getLabel: q => d3.format(legendFormat)(q),
