@@ -1,10 +1,12 @@
+$min-width: 992px;
+
 .superbugs-map-wrapper {
 
   background-color: #cce2df;
   position: relative;
   width: 100%;
 
-  @media (min-width: 992px) {
+  @media (min-width: $min-width) {
     padding-top: 200px;  // leave space for infobox
   }
 
@@ -68,7 +70,7 @@
     padding: 10px;
     margin: 0 10px;
 
-    @media (min-width: 992px) {
+    @media (min-width: $min-width) {
 
       position: absolute;
       top: 22px;
@@ -123,7 +125,11 @@
 
     width: 100%;
     background: #fff;
-    font-size: 20px;
+    font-size: 15px;
+
+    @media (min-width: $min-width) {
+      font-size: 20px;
+    }
 
     option {
       padding-left: 0;
