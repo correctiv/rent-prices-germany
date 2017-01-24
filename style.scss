@@ -35,16 +35,16 @@ $min-width: 992px;
 
     position: absolute;
     top: 22px;
-    right: 22px;
-    padding: 10px;
+    left: 22px;
+    padding: 0 4px 6px 8px;
     background-color: #fff;
     opacity: .8;
     color: #000;
 
-    @media (min-width: $min-width) {
-      top: auto;
-      bottom: 22px;
-    }
+    // @media (min-width: $min-width) {
+    //   top: auto;
+    //   bottom: 22px;
+    // }
 
     ul {
 

@@ -13,7 +13,7 @@ d3.playbooks.superbugsMap = ({
 
   const superbugsMap = d3.playbooks.choroplethMap({
     width: 800,
-    height: 700,
+    height: 600,
     elementId: `superbugs-map--${id}`,
     cssNamespace: 'superbugs-map',
     geoDataUrl,
