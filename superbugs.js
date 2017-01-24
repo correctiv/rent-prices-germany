@@ -5,6 +5,7 @@ d3.playbooks.superbugsMap = ({
   annotation,
   eudata,
   dataUrl,
+  geoDataUrl,
   yExtent,
   legendFormat='.0f',
 }) => {
@@ -14,7 +15,7 @@ d3.playbooks.superbugsMap = ({
     height: 800,
     elementId: `superbugs-map--${id}`,
     cssNamespace: 'superbugs-map',
-    geoDataUrl: './data/europe.topo.json',
+    geoDataUrl,
     dataUrl,
     yExtent,
     nullColor: '#eee',

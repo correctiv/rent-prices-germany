@@ -21,7 +21,7 @@ A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks-map
   "eudata": "12 %",
   "annotation": "Annotation, like url to source pdf, html allowed",
   "dataSlug": "data_slug",
-  "yExtent": [0, 50],
+  "yExtent": "[0, 50]",
   "legendFormat": ".2f"
 }
 ```
@@ -60,14 +60,15 @@ style.css
 ```javascript
 <script>
 d3.playbooks.superbugsMap({
-    id: "%id%",
-    title: "%title%",
-    description: "%description%",
-    eudata: "%eudata%",
-    annotation: "%annotation%",
-    dataUrl: "./data/%dataSlug%.csv",
-    yExtent: %yExtent%,
-    legendFormat: %legendFormat%
+  id: "%id%",
+  title: "%title%",
+  description: "%description%",
+  eudata: "%eudata%",
+  annotation: "%annotation%",
+  dataUrl: "%path%data/%dataSlug%.csv",
+  geoDataUrl: "%path%data/europe.topo.json",
+  yExtent: %yExtent%,
+  legendFormat: "%legendFormat%"
 })
 </script>
 ```
