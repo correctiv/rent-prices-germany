@@ -16,6 +16,8 @@ A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks-map
 
 `legendUnit`: `"%"` or `"€"` or whatever.
 
+`reverseColor`: if set to anything `true-ish`, color scale will be inverted.
+
 ```json
 {
   "title": "Title for Map",
@@ -25,7 +27,8 @@ A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks-map
   "dataSlug": "data_slug",
   "yExtent": "[0, 50]",
   "legendFormat": ".2f",
-  "legendUnit": "%"
+  "legendUnit": "%",
+  "reverseColor": "false"
 }
 ```
 

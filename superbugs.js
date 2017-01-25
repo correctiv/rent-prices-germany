@@ -8,8 +8,12 @@ d3.playbooks.superbugsMap = ({
   geoDataUrl,
   yExtent,
   legendFormat,
-  legendUnit
+  legendUnit,
+  reverseColor
 }) => {
+
+  const color = ['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d']
+  if (reverseColor) color.reverse()
 
   const superbugsMap = d3.playbooks.choroplethMap({
     width: 800,
@@ -19,7 +23,7 @@ d3.playbooks.superbugsMap = ({
     geoDataUrl,
     dataUrl,
     yExtent,
-    color: ['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'],
+    color,
     nullColor: '#eee',
     responsiveSvg: true,
     isTopojson: true,
@@ -59,7 +63,6 @@ d3.playbooks.superbugsMap = ({
     `
   }).selector({
     element: `#superbugs-map__selector--${id}`,
-    // getLabel: f => f.display_value ? `${f.name}: ${f.display_value}` : f.name
     getLabel: f => f.name
   }).legend({
     getLabel: q => d3.format(legendFormat)(q),
@@ -70,7 +73,7 @@ d3.playbooks.superbugsMap = ({
 
   // initial hilight
   superbugsMap.ready().then(() => {
-    const germany = superbugsMap.data().filter(d => d.iso_a2 === 'DE')[0]
+    const germany = superbugsMap.data().find(d => d.iso_a2 === 'DE')
     superbugsMap.hilight(germany)
     superbugsMap.control().trigger('update_infobox', germany)
     superbugsMap.control().trigger('update_selector', germany)
