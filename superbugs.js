@@ -24,7 +24,7 @@ d3.playbooks.superbugsMap = ({
     dataUrl,
     yExtent,
     color,
-    nullColor: '#eee',
+    nullColor: '#cce2df',
     responsiveSvg: true,
     isTopojson: true,
     topojsonLayerName: 'europe_clipped',

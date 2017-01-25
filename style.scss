@@ -1,8 +1,9 @@
 $min-width: 992px;
+$ocean: #cce2df;
 
 .superbugs-map-wrapper {
 
-  background-color: #cce2df;
+  background-color: $ocean;
   position: relative;
   width: 100%;
 
@@ -13,7 +14,7 @@ $min-width: 992px;
   .superbugs-map {
 
     svg {
-      background-color: #cce2df;
+      background-color: $ocean;
 
       path {
 
