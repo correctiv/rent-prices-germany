@@ -50,6 +50,7 @@ GB,4.1,"4,1 % (England only)"
 ```
 lib/d3.v4.min.js
 lib/topojson.v2.min.js
+lib/riot.min.js
 lib/d3-playbooks.maps.min.js
 lib/d3-playbooks.riot-components.min.js
 superbugs.min.js
