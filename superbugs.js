@@ -17,7 +17,7 @@ d3.playbooks.superbugsMap = ({
 
   const superbugsMap = d3.playbooks.choroplethMap({
     width: 800,
-    height: 600,
+    height: 400,
     elementId: `superbugs-map--${id}`,
     cssNamespace: 'superbugs-map',
     geoDataUrl,
@@ -26,29 +26,29 @@ d3.playbooks.superbugsMap = ({
     color,
     nullColor: '#cce2df',
     responsiveSvg: true,
-    isTopojson: true,
-    topojsonLayerName: 'europe_clipped',
+    //isTopojson: true,
+    //topojsonLayerName: 'europe_clipped',
     projection: d3.geoConicConformal(),
-    getId: f => f.properties.iso_a2,
-    drawExtra: M => {
-      const cyprus = M.data.find(d => d.iso_a2 === 'CY')
-      const [[x0, y0], [x1, y1]] = M.path.bounds(cyprus)
-      M.g.append('text')
-        .attr('x', x0 - 10)
-        .attr('y', y0 - 20)
-        .text(cyprus.name)
-        .style('font-size', 10)
-        .style('fill', 'gray')
-      M.g.append('rect')
-        .attr('x', x0 - 10)
-        .attr('y', y0 - 15)
-        .attr('width', x1 - x0 + 20)
-        .attr('height', y1 - y0 + 20)
-        .style('fill', 'none')
-        .style('stroke', 'gray')
-        .style('stroke-width', .5)
-    }
-  })
+    getId: f => f.properties.RS,
+ //   drawExtra: M => {
+ //     const cyprus = M.data.find(d => d.iso_a2 === 'CY')
+ //     const [[x0, y0], [x1, y1]] = M.path.bounds(cyprus)
+ //     M.g.append('text')
+ //       .attr('x', x0 - 10)
+ //       .attr('y', y0 - 20)
+ //       .text(cyprus.name)
+ //       .style('font-size', 10)
+ //       .style('fill', 'gray')
+ //     M.g.append('rect')
+ //       .attr('x', x0 - 10)
+ //       .attr('y', y0 - 15)
+ //       .attr('width', x1 - x0 + 20)
+ //       .attr('height', y1 - y0 + 20)
+ //       .style('fill', 'none')
+ //       .style('stroke', 'gray')
+ //       .style('stroke-width', .5)
+ //   }
+ })
 
   const euDataTempl = eudata ? `<p class="infobox__eudata">EU: ${eudata}</p>` : ''
 

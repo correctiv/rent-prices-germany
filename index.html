@@ -26,7 +26,7 @@
   <script src="./lib/riot.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/d3-playbooks.maps.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./superbugs.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./superbugs.js" type="text/javascript" charset="utf-8"></script>
 
   <script type="text/javascript" charset="utf-8">
     d3.playbooks.superbugsMap({
@@ -35,8 +35,8 @@
       description: "Median percentage of single-room beds among the total number of hospital beds",
       eudata: "",
       annotation: "<a href='http://ecdc.europa.eu/en/publications/_layouts/forms/Publication_DispForm.aspx?List=4f55ad51-4aed-4d32-b960-af70113dbb90&ID=865'>ECDC Surveillance Report: Point prevalence survey of healthcare-associated infections and antimicrobial use in European acute care hospitals 2011-2012</a>",
-      dataUrl: "./data/single_rooms.csv",
-      geoDataUrl: "./data/europe.topo.json",
+      dataUrl: "./data/percentchange20162012.csv",
+      geoDataUrl: "./data/vg2500_krs.json",
       yExtent: false,
       legendFormat: ".1f",
       legendUnit: "%",
