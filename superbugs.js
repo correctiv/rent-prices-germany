@@ -55,7 +55,7 @@ d3.playbooks.superbugsMap = ({
   superbugsMap.render().infobox({
     element: `#superbugs-map__infobox--${id}`,
     template: `
-      <h3>{display_value}</h3>
+      <h3>{display_value}%</h3>
       <h4>${title}</h4>
       <p class="infobox__description">${description}</p>
       ${euDataTempl}
@@ -73,7 +73,7 @@ d3.playbooks.superbugsMap = ({
 
   // initial hilight
   superbugsMap.ready().then(() => {
-    const germany = superbugsMap.data().find(d => d.iso_a2 === 'DE')
+    const germany = superbugsMap.data().find(d => d.RS === "11000")
     superbugsMap.hilight(germany)
     superbugsMap.control().trigger('update_infobox', germany)
     superbugsMap.control().trigger('update_selector', germany)
