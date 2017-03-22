@@ -5,43 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>d3-playbooks-maps</title>
   <link rel="stylesheet" href="./lib/correctiv.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="./lib/superbugs.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="./style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="./cor-rent-vis.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-  <h1>correctiv rents</h1>
 
-  <section class="superbugs-map-wrapper">
-    <section class="superbugs-map" id="superbugs-map--17"></section>
-    <section class="superbugs-map__legend" id="superbugs-map__legend--17"></section>
-    <section class="superbugs-map__info-wrapper" id="superbugs-map__info-wrapper--17">
-      <section class="superbugs-map__selector" id="superbugs-map__selector--17"></section>
-      <section class="superbugs-map__infobox" id="superbugs-map__infobox--17"></section>
-    </section>
-  </section>
+  <main>
+    <article class="article">
+      <section class="article-body page__container">
+        <div class="article-body__main">
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
 
+          <h2>Mietpreise</h2>
+
+          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
+            <div class="cor-viz cor-viz-rents__container figure__container">
+              <div class="cor-viz cor-viz-rents__map" id="cor-viz-rents__map--17"></div>
+              <figcaption class="cor-viz cor-viz-rents__figcaption-wrapper figure__caption">
+                <div class="figure__title"><p>Mietpreise</p></div>
+                <div class="cor-viz cor-viz-rents__legend" id="cor-viz-rents__legend--17">
+                  <img src="./legend.png">
+                </div>
+                <div class="cor-viz cor-viz-rents__selector" id="cor-viz-rents__selector--17"></div>
+                <div class="cor-viz cor-viz-rents__infobox-wrapper -hidden">
+                  <div class="cor-viz cor-viz-rents__infobox" id="cor-viz-rents__infobox--17"></div>
+                  <div class="cor-viz cor-viz-rents__timeline d3-playbooks" id="cor-viz-rents__timeline--17"></div>
+                </div>
+                <div class="figure__credits">
+                  <p><strong>Daten:</strong> <a href="">Data Source</a></p>
+                </div>
+              </figcaption>
+            </div>
+          </figure>
+
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+
+        </div>
+      </section>
+    </article>
+  </main>
 
   <script src="./lib/d3.v4.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/topojson.v2.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/riot.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.base.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/d3-playbooks.maps.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./superbugs.js" type="text/javascript" charset="utf-8"></script>
-
+  <script src="./cor-rent-vis.min.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    d3.playbooks.superbugsMap({
-      id: 17,
-      title: "Median Rent Changes 2012-2016",
-      description: "Change in median rents per square kilometer in Germany between 2012 and 2016",
-      eudata: "",
-      annotation: "Data source: Empirica (TK wording)",
-      dataUrl: "./data/2012_2016_percent_change_rounded.csv",
-      geoDataUrl: "./data/vg2500_krs.json",
-      yExtent: false,
-      legendFormat: ".1f",
-      legendUnit: "%",
-      reverseColor: ""
-    })
+    renderRentMap(17);
   </script>
 
 </body>
