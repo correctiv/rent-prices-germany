@@ -4,10 +4,10 @@
   "description": "Visualize rent prices in Germany using D3",
   "main": "cor-rent-vis.js",
   "scripts": {
-    "build-css": "node-sass --include-path scss --output-style compressed ./cor-rent-vis.scss ./cor-rent-vis.css",
-    "build-js": "babel cor-rent-vis.js | uglifyjs -c -m > cor-rent-vis.min.js",
+    "build-css": "node-sass --output-style compressed ./src/main.scss ./cor-rent-vis.min.css",
+    "build-js": "babel ./src/main.js | uglifyjs -c -m > ./cor-rent-vis.min.js",
     "build": "npm run build-css && npm run build-js",
-    "dev": "nodemon -e scss js -x \"npm run build\""
+    "dev": "nodemon -e scss,js --watch ./src/ -x \"npm run build\""
   },
   "repository": {
     "type": "git",
