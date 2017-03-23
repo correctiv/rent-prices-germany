@@ -1,5 +1,6 @@
 const COLORS = {
   '11': '#e8e6f2',
+  // '11': '#d7d6e1', // FIXME ??
   '12': '#b5d3e7',
   '13': '#4fadd0',
   '21': '#e5b4d9',
@@ -18,9 +19,11 @@ const YEARS = [
   '2016'
 ]
 
+const cssNamespace = 'cor-viz-rents'
+
+// bivariate map
 window.renderRentMap = id => {
 
-  const cssNamespace = 'cor-viz-rents'
   const M = d3.playbooks.choroplethMap({
     width: 600,  // german shape ratio
     height: 810,
@@ -57,10 +60,11 @@ window.renderRentMap = id => {
     timeFormat: '%Y',
     color: COLORS['33'],
     yExtent: [0, 15],
-    // getYAxis: ({yScale}) => d3.axisRight(yScale),
+    getYAxis: ({yScale}) => d3.axisRight(yScale),
     // getXAxis: ({xScale}) => d3.axisTop(xScale),
     showXLabel: false,
-    // showYLabel: false,
+    showYLabel: false,
+    yTickFormat: d => d > 0 ? d + ' €' : '',
     yLabel: '€ / m²',
     yTicks: 15,
     xTicks: 4,
@@ -69,7 +73,7 @@ window.renderRentMap = id => {
       top: 20,
       right: 20,
       bottom: 20,
-      left: 20
+      left: 10
     }
   })
 
@@ -99,4 +103,71 @@ window.renderRentMap = id => {
 
   M.control().on(riot.EVT.updateInfobox, d => renderTimeline(d))
   M.control().on(riot.EVT.emptyInfobox, () => unHilight())
+}
+
+
+// scatter plot
+window.renderScatter = id => {
+
+  d3.playbooks.scatterChart({
+    cssNamespace,
+    // width: 1000,  // .-full-width ??
+    // height: 600,
+    elementId: `${cssNamespace}__scatter--${id}`,
+    dataUrl: './data/scatter.csv',
+    xCol: 'rent_median',
+    yLabel: 'Einwohner pro m²',
+    xLabel: 'Mittlerer Mietpreis in € pro m²',
+    yCol: 'density',
+    getXDomain: () => [4, 16],
+    sizeCol: 'size',
+    sizeRange: [4, 20],
+    groupCol: 'color',
+    color: COLORS,
+    yTicks: 5,
+    yTickFormat: d => d > 0 ? d/1000 + ' T.' : '',
+    getLegendItems: ({data}) => {
+      const extent = d3.extent(data, d => Number(d['2016pop']))
+      const getSize = d3.scaleLinear().domain(extent).range([4, 20])
+      const population = [100000, 500000, 2000000]
+      return population.reverse().map(p => {
+        const radius = getSize(p)
+        const label = p < 1000000 ? `${p / 1000} T.` : `${p / 1000000} Mio.`
+        return {
+          'color': COLORS['11'],
+          'label': label,
+          'size': 30,
+          // 'size': radius * 2,
+          'radius': radius
+        }
+      })
+    }
+  }).render()
+
+    .selector({
+      element: `#${cssNamespace}__selector--${id}`,
+      getLabel: d => d.name
+    })
+
+    .infobox({
+      element: `#${cssNamespace}__infobox--${id}`,
+      template: `
+        <p><strong>Miete 2016</strong><br>{rent_median} € / m²</p>
+        <p><strong>Anstieg seit 2012</strong><br>{percent_change} %</p>
+      `
+    })
+
+    .legend({
+      element: `#${cssNamespace}__legend--${id}`,
+      wrapperTemplate: '<div class="cor-viz-rents__scatter-legend-list">{body}</div>',
+      itemTemplate: `
+        <div class="cor-viz-rents__scatter-legend-item">
+          <svg width="{size}" height="{size}">
+            <circle r={radius} cx=15 cy=15 style="fill:{color}"></circle>
+          </svg>
+          <span>{label}</span>
+        </div>
+      `
+    })
+
 }

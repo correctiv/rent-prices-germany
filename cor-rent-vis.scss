@@ -1,8 +1,15 @@
 .cor-viz {
 
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
+
+  .axis, .label {
+
+    font-weight: normal;
+    font-size: 10px;
+
+  }
 
   .figure {
 
@@ -35,9 +42,29 @@
       stroke-width: 1;
 
       &.-hilight {
+
         stroke: gray;
         stroke-width: 1;
+
       }
+
+    }
+
+    circle {
+
+      fill-opacity: .8;
+      stroke-width: 1;
+      stroke-opacity: 1;
+      stroke: gray;
+
+      &.-hilight {
+
+        fill-opacity: 1;
+        stroke: #1a1a1a;
+        stroke-width: 2;
+
+      }
+
     }
 
   }
@@ -131,6 +158,58 @@
       visibility: hidden;
 
     }
+
+  }
+
+  &__scatter-legend-item {
+
+    padding-top: 15px;
+
+    svg {
+
+      float: left;
+
+      circle {
+
+        fill-opacity: .8;
+        stroke-opacity: 1;
+        stroke: gray;
+
+      }
+
+    }
+
+    span {
+
+      margin-left: 10px;
+      line-height: 30px;
+
+    }
+
+  }
+
+  // FIXME
+  &__container--scatter {
+
+    .cor-viz-rents__infobox {
+
+      border: 1px solid gray;
+      margin-top: 3px;
+      padding: 9px;
+
+      &.-empty {
+
+        visibility: hidden;
+
+      }
+
+    }
+
+    // .cor-viz-rents__svg {
+
+    //   margin: 0 auto;
+
+    // }
 
   }
 
