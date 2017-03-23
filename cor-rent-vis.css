@@ -39,23 +39,31 @@
   stroke: gray;
   stroke-dasharray: 1, 1; }
 
+.cor-viz-rents__figcaption-wrapper {
+  top: 90px; }
+
 .cor-viz-rents__legend {
-  padding-bottom: 20px; }
-  .cor-viz-rents__legend img {
+  position: absolute;
+  top: -60px;
+  left: -120px; }
+  .cor-viz-rents__legend > img {
     display: block;
-    width: 50%;
+    width: 350px;
     margin: 0 auto; }
 
-.cor-viz-rents__selector select {
-  background: white;
-  margin: 0;
-  padding: 5px;
-  border: 1px solid gray;
-  display: block;
-  width: 100%; }
-  .cor-viz-rents__selector select option {
-    font-size: 14px;
-    padding: 0px; }
+.cor-viz-rents__selector {
+  position: relative;
+  margin-top: 90px; }
+  .cor-viz-rents__selector select {
+    background: white;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid gray;
+    display: block;
+    width: 100%; }
+    .cor-viz-rents__selector select option {
+      font-size: 14px;
+      padding: 0px; }
 
 .cor-viz-rents__infobox-wrapper {
   margin-top: 3px; }
@@ -98,7 +106,8 @@
 .cor-viz-rents__credits {
   position: relative;
   top: -30px;
-  font-size: 15px; }
+  font-size: 15px;
+  clear: left; }
   .cor-viz-rents__credits a {
     border: none;
     text-decoration: underline;

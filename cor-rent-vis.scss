@@ -100,14 +100,18 @@
 
   }
 
+  &__figcaption-wrapper {
+    top: 90px;
+  }
+
   &__legend {
+    position: absolute;
+    top: -60px;
+    left: -120px;
 
-    padding-bottom: 20px;
-
-    img {
-
+    > img {
       display: block;
-      width: 50%;
+      width: 350px;
       margin: 0 auto;
 
     }
@@ -115,9 +119,10 @@
   }
 
   &__selector {
+    position: relative;
+    margin-top: 90px;
 
     select {
-
       background: white;
       margin: 0;
       padding: 5px;
@@ -224,7 +229,7 @@
   position: relative;
   top: -30px;
   font-size: 15px;
-
+  clear: left;
 
   a {
     border: none;
