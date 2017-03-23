@@ -6,7 +6,7 @@
   .axis, .label {
 
     font-weight: normal;
-    font-size: 10px;
+    font-size: 11px;
 
   }
 
@@ -74,7 +74,7 @@
 
       path.line {
 
-        stroke-width: 1;
+        stroke-width: 2;
 
       }
 
@@ -82,8 +82,9 @@
 
         .domain, .tick line {
 
-          stroke: gray;
-          stroke-dasharray: 1, 1;
+          stroke: #555;
+          stroke-width: 1.5;
+          // stroke-dasharray: 5, 3;
 
         }
 

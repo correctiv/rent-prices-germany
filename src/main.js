@@ -58,11 +58,10 @@ window.renderRentMap = id => {
   d3.playbooks.timeLineChart.defaults({
     elementId: timeLineElId,
     cssNamespace: `${cssNamespace}-timeline`,
-    width: 200,
-    height: 250,
+    width: 150,
+    height: 200,
     curve: d3.curveStep,
     timeFormat: '%Y',
-    color: COLORS['33'],
     yExtent: [3.5, 15],
     getYAxis: ({yScale}) => d3.axisRight(yScale),
     // getXAxis: ({xScale}) => d3.axisTop(xScale),
@@ -71,13 +70,13 @@ window.renderRentMap = id => {
     yTickFormat: d => d > 3 ? d + ' €' : '',
     yLabel: '€ / m²',
     yTicks: 3,
-    xTicks: 4,
+    xTicks: 3,
     yScaleNice: false,
     margin: {
       top: 20,
-      right: 20,
+      right: 15,
       bottom: 20,
-      left: 10
+      left: 15
     }
   })
 
@@ -94,8 +93,9 @@ window.renderRentMap = id => {
       YEARS.map(y => Number(d[y]))
     ]
 
-    d3.playbooks.timeLineChart({
-      data
+    const T = d3.playbooks.timeLineChart({
+      data,
+      color: COLORS[d.value]
     }).render()
 
   }
