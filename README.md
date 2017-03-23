@@ -96,14 +96,14 @@ d3.playbooks.superbugsMap({
 
 ## development / build
 
-**install build deps**
+### install build deps
 
-`npm install babel-cli babel-preset-es2015 uglify-js`
+`npm install`
 
-**js**
+### build js and css for deployment
 
-`babel superbugs.js | uglifyjs -c -m > superbugs.min.js`
+`npm run build`
 
-**css**
+### watch and build js and css during development
 
-`sass -t compressed style.scss:style.css`
+`npm run dev`

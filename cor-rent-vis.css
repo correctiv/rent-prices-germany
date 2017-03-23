@@ -1,2 +1,86 @@
-.cor-viz{font-size:14px;margin-top:10px;position:relative}.cor-viz .axis,.cor-viz .label{font-weight:normal;font-size:10px}.cor-viz .figure__credits{margin-top:14px;color:#9c9c9c;font-size:14px;line-height:1.4}.cor-viz .figure__credits>p:first-of-type:before{content:'';padding:0}.cor-viz-rents__svg path.map__item{stroke:#fff;stroke-width:1}.cor-viz-rents__svg path.map__item.-hilight{stroke:gray;stroke-width:1}.cor-viz-rents__svg circle{fill-opacity:.8;stroke-width:1;stroke-opacity:1;stroke:gray}.cor-viz-rents__svg circle.-hilight{fill-opacity:1;stroke:#1a1a1a;stroke-width:2}.cor-viz-rents-timeline__svg path.line{stroke-width:1}.cor-viz-rents-timeline__svg .y.axis .domain,.cor-viz-rents-timeline__svg .y.axis .tick line,.cor-viz-rents-timeline__svg .x.axis .domain,.cor-viz-rents-timeline__svg .x.axis .tick line{stroke:gray;stroke-dasharray:1, 1}.cor-viz-rents__legend{padding-bottom:20px}.cor-viz-rents__legend img{display:block;width:50%;margin:0 auto}.cor-viz-rents__selector select{background:white;margin:0;padding:5px;border:1px solid gray;display:block;width:100%}.cor-viz-rents__selector select option{font-size:14px;padding:0px}.cor-viz-rents__infobox-wrapper{border:1px solid gray;margin-top:3px;padding:9px}.cor-viz-rents__infobox-wrapper.-hidden{visibility:hidden}.cor-viz-rents__infobox.-empty{visibility:hidden}.cor-viz-rents__scatter-legend-item{padding-top:15px}.cor-viz-rents__scatter-legend-item svg{float:left}.cor-viz-rents__scatter-legend-item svg circle{fill-opacity:.8;stroke-opacity:1;stroke:gray}.cor-viz-rents__scatter-legend-item span{margin-left:10px;line-height:30px}.cor-viz-rents__container--scatter .cor-viz-rents__infobox{border:1px solid gray;margin-top:3px;padding:9px}.cor-viz-rents__container--scatter .cor-viz-rents__infobox.-empty{visibility:hidden}
-/*# sourceMappingURL=cor-rent-vis.css.map */
+.cor-viz {
+  font-size: 14px;
+  margin-top: 10px;
+  position: relative; }
+  .cor-viz .axis, .cor-viz .label {
+    font-weight: normal;
+    font-size: 10px; }
+  .cor-viz .figure__credits {
+    margin-top: 14px;
+    color: #9c9c9c;
+    font-size: 14px;
+    line-height: 1.4; }
+    .cor-viz .figure__credits > p:first-of-type:before {
+      content: '';
+      padding: 0; }
+
+.cor-viz-rents__svg path.map__item {
+  stroke: #fff;
+  stroke-width: 1; }
+  .cor-viz-rents__svg path.map__item.-hilight {
+    stroke: gray;
+    stroke-width: 1; }
+
+.cor-viz-rents__svg circle {
+  fill-opacity: .8;
+  stroke-width: 1;
+  stroke-opacity: 1;
+  stroke: gray; }
+  .cor-viz-rents__svg circle.-hilight {
+    fill-opacity: 1;
+    stroke: #1a1a1a;
+    stroke-width: 2; }
+
+.cor-viz-rents-timeline__svg path.line {
+  stroke-width: 1; }
+
+.cor-viz-rents-timeline__svg .y.axis .domain, .cor-viz-rents-timeline__svg .y.axis .tick line, .cor-viz-rents-timeline__svg .x.axis .domain, .cor-viz-rents-timeline__svg .x.axis .tick line {
+  stroke: gray;
+  stroke-dasharray: 1, 1; }
+
+.cor-viz-rents__legend {
+  padding-bottom: 20px; }
+  .cor-viz-rents__legend img {
+    display: block;
+    width: 50%;
+    margin: 0 auto; }
+
+.cor-viz-rents__selector select {
+  background: white;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid gray;
+  display: block;
+  width: 100%; }
+  .cor-viz-rents__selector select option {
+    font-size: 14px;
+    padding: 0px; }
+
+.cor-viz-rents__infobox-wrapper {
+  border: 1px solid gray;
+  margin-top: 3px;
+  padding: 9px; }
+  .cor-viz-rents__infobox-wrapper.-hidden {
+    visibility: hidden; }
+
+.cor-viz-rents__infobox.-empty {
+  visibility: hidden; }
+
+.cor-viz-rents__scatter-legend-item {
+  padding-top: 15px; }
+  .cor-viz-rents__scatter-legend-item svg {
+    float: left; }
+    .cor-viz-rents__scatter-legend-item svg circle {
+      fill-opacity: .8;
+      stroke-opacity: 1;
+      stroke: gray; }
+  .cor-viz-rents__scatter-legend-item span {
+    margin-left: 10px;
+    line-height: 30px; }
+
+.cor-viz-rents__container--scatter .cor-viz-rents__infobox {
+  border: 1px solid gray;
+  margin-top: 3px;
+  padding: 9px; }
+  .cor-viz-rents__container--scatter .cor-viz-rents__infobox.-empty {
+    visibility: hidden; }
