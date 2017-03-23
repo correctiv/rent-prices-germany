@@ -44,8 +44,12 @@ window.renderRentMap = id => {
     .infobox({
       element: `#${cssNamespace}__infobox--${id}`,
       template: `
-        <p><strong>Miete 2016</strong><br>{rent_median} € / m²</p>
-        <p><strong>Anstieg seit 2012</strong><br>{percent_change} %</p>
+        <dl>
+          <dt>{rent_median} € / m²</dt>
+          <dd>Miete 2016</dd>
+          <dt>{percent_change} %</dt>
+          <dd>Anstieg seit 2012</dd>
+        </dl>
       `
     })
 

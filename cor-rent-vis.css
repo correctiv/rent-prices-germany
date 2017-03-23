@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .cor-viz {
   font-size: 14px;
   margin-top: 10px;
@@ -57,14 +58,23 @@
     padding: 0px; }
 
 .cor-viz-rents__infobox-wrapper {
-  border: 1px solid gray;
-  margin-top: 3px;
-  padding: 9px; }
+  margin-top: 3px; }
   .cor-viz-rents__infobox-wrapper.-hidden {
     visibility: hidden; }
 
 .cor-viz-rents__infobox.-empty {
   visibility: hidden; }
+
+.cor-viz-rents__infobox dt {
+  padding-top: .7em;
+  font-size: 20px;
+  line-height: 1em;
+  font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+  font-weight: bold; }
+
+.cor-viz-rents__infobox dd {
+  font-weight: normal;
+  line-height: 1em; }
 
 .cor-viz-rents__scatter-legend-item {
   padding-top: 15px; }
@@ -84,3 +94,63 @@
   padding: 9px; }
   .cor-viz-rents__container--scatter .cor-viz-rents__infobox.-empty {
     visibility: hidden; }
+
+.cor-viz-rents__credits {
+  position: relative;
+  top: -30px;
+  font-size: 15px; }
+  .cor-viz-rents__credits a {
+    border: none;
+    text-decoration: underline;
+    color: inherit; }
+
+.cor-viz-rents__selector {
+  position: relative;
+  display: block;
+  /*
+   * Styling for `select` element, borrowed from:
+   * https://github.com/filamentgroup/select-css/blob/master/src/select-css.css
+   * ---
+   * This is the native select, we're making everything but the text invisible so
+   * we can see the button styles in the wrapper */
+  /* Custom arrow sits on top of the select - could be an image, SVG, icon font,
+   * etc. or the arrow could just baked into the bg image on the select. */ }
+  .cor-viz-rents__selector select {
+    width: 100%;
+    margin: 0;
+    outline: none;
+    padding: .2em .4em;
+    border-radius: 0;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Font size must be 16px to prevent iOS page zoom on focus */
+    font-size: 16px; }
+  .cor-viz-rents__selector::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    z-index: 2;
+    /* These hacks make the select behind the arrow clickable in some browsers */
+    pointer-events: none;
+    display: none; }
+  @supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
+    .cor-viz-rents__selector {
+      /* Remove select styling */ }
+      .cor-viz-rents__selector::after {
+        content: '▾';
+        display: block;
+        position: absolute;
+        right: .6em;
+        top: .3em; }
+      .cor-viz-rents__selector select {
+        padding-right: 1.2em;
+        background: none;
+        border: 1px solid #aaa;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; }
+      .cor-viz-rents__selector select:focus {
+        border-color: #000; } }
