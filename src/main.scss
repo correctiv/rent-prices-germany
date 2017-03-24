@@ -72,7 +72,7 @@ $screen-lg: 1200px;
 
   }
 
-  &-timeline {
+  &-timeline, &-comparison {
 
     &__svg {
 
@@ -204,6 +204,17 @@ $screen-lg: 1200px;
 
       margin-left: 10px;
       line-height: 30px;
+
+    }
+
+  }
+
+  &__comparison {
+
+    @media (min-width: $screen-md / 2) {
+
+      width: 50%;
+      float: left;
 
     }
 

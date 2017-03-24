@@ -42,7 +42,7 @@
             no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
 
-          <h2>Mietpreise und Einwohnerdichte</h2>
+          <h3>Mietpreise und Einwohnerdichte</h3>
 
           <figure class="cor-viz cor-viz-rents figure -paragraph-width">
             <div class="cor-viz cor-viz-rents__container--scatter figure__container">
@@ -56,6 +56,31 @@
                   <p><strong>Daten:</strong> <a href="">Data Source</a></p>
                 </div>
               </figcaption>
+            </div>
+          </figure>
+
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+
+          <h3>Vergleich Ruhrgebiet und Region um München</h3>
+
+          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
+            <div class="cor-viz cor-viz-rents__container--comparison figure__container">
+              <div class="cor-viz cor-viz-rents__comparison d3-playbooks" id="cor-viz-rents__comparison-ruhr--1337">
+                <strong>Ruhrgebiet</strong>
+              </div>
+              <div class="cor-viz cor-viz-rents__comparison d3-playbooks" id="cor-viz-rents__comparison-muc--1337">
+                <strong>Region um München</strong>
+              </div>
+              <div class="figure__credits">
+                <p><strong>Ruhrgebiet:</strong> Herne, Oberhausen, Essen, Gelsenkirchen, Duisburg, Bochum, Dortmund</p>
+                <p><strong>Region um München:</strong> München, Dachau, Ebersberg, Fürstenfeldbruck, München (Kreis), Starnberg</p>
+                <p><strong>Daten:</strong> <a href="">Data Source</a></p>
+              </div>
             </div>
           </figure>
 
@@ -81,6 +106,7 @@
   <script type="text/javascript" charset="utf-8">
     renderRentMap(17);
     renderScatter(42);
+    renderComparison(1337);
   </script>
 
 </body>

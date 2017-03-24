@@ -81,7 +81,6 @@ window.renderRentMap = id => {
     yLabel: '€ / m²',
     yTicks: 3,
     xTicks: 3,
-    yScaleNice: false,
     margin: {
       top: 20,
       right: 15,
@@ -191,4 +190,57 @@ window.renderScatter = id => {
     })
 
   initialHilight(S)
+}
+
+
+// comparison charts
+window.renderComparison = id => {
+
+  d3.playbooks.multiTimeLineChart.defaults({
+    cssNamespace: `${cssNamespace}-comparison`,
+    width: 250,
+    height: 300,
+    xTicks: 3,
+    yTickFormat: d => d > 0 ? d + ' €' : '',
+    yLabel: 'Mittlerer Mietpreis pro m²',
+    timeFormat: '%Y',
+    showXLabel: false,
+    curve: d3.curveStep,
+    getYDomain: () => [0, 15],
+    dataUrl: './data/comparison.csv',
+    // drawExtra: ({
+    //   data,
+    //   drawedSelection,
+    //   xScale,
+    //   yScale,
+    //   g
+    // }) => {
+    //   const last = data.slice(-1)[0]
+    //   const find = d => Object.keys(last).find(k => last[k] === d)
+    //   const labels = drawedSelection.data().map(d => {
+    //     const _last = d.slice(-1)[0]
+    //     const label = find(_last)
+    //     const y = yScale(_last)
+    //     return {label, y}
+    //   })
+    //   g.selectAll('.label').data(labels).enter().append('text')
+    //     .attr('class', '.label')
+    //     .attr('x', 100)
+    //     .attr('y', d => d.y)
+    //     .text(d => d.label)
+    // }
+  })
+
+  d3.playbooks.multiTimeLineChart({
+    elementId: `${cssNamespace}__comparison-ruhr--${id}`,
+    yCols:  ['Herne', 'Oberhausen', 'Essen', 'Gelsenkirchen', 'Duisburg', 'Bochum', 'Dortmund'],
+    color: COLORS[21]
+  }).render()
+
+  d3.playbooks.multiTimeLineChart({
+    elementId: `${cssNamespace}__comparison-muc--${id}`,
+    yCols:  ['München', 'Dachau', 'Ebersberg', 'Fürstenfeldbruck', 'München (Kreis)', 'Starnberg'],
+    color: COLORS[23]
+  }).render()
+
 }
