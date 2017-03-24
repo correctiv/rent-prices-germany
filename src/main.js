@@ -21,6 +21,16 @@ const YEARS = [
 
 const cssNamespace = 'cor-viz-rents'
 
+// initial hilight
+const initialHilight = (viz, name='Wolfsburg') => {
+  viz.ready().then(() => {
+    const initial = viz.data().find(d => d.name === name)
+    viz.hilight(initial)
+    viz.control().trigger(riot.EVT.updateSelector, initial)
+    viz.control().trigger(riot.EVT.updateInfobox, initial)
+  })
+}
+
 // bivariate map
 window.renderRentMap = id => {
 
@@ -107,6 +117,7 @@ window.renderRentMap = id => {
 
   M.control().on(riot.EVT.updateInfobox, d => renderTimeline(d))
   // M.control().on(riot.EVT.emptyInfobox, () => unHilight())
+  initialHilight(M)
 
 }
 
@@ -114,7 +125,7 @@ window.renderRentMap = id => {
 // scatter plot
 window.renderScatter = id => {
 
-  d3.playbooks.scatterChart({
+  const S = d3.playbooks.scatterChart({
     cssNamespace,
     // width: 1000,  // .-full-width ??
     // height: 600,
@@ -179,4 +190,5 @@ window.renderScatter = id => {
       `
     })
 
+  initialHilight(S)
 }
