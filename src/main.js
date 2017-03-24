@@ -244,3 +244,38 @@ window.renderComparison = id => {
   }).render()
 
 }
+
+
+// small multiple maps
+window.renderSmMaps = id => {
+
+  const renderMap = (year, legend=true) => {
+    const sMap = d3.playbooks.choroplethMap({
+      width: 600,  // german shape ratio
+      height: 810,
+      elementId: `${cssNamespace}__sm-map-${year}--${id}`,
+      cssNamespace,
+      yCol: year,
+      yExtent: [5, 15],
+      dataUrl: './data/map_data.csv',
+      geoDataUrl: './data/landkreise_simplify200.topo.json',
+      isTopojson: true,
+      topojsonLayerName: 'landkreise_simplify200',
+      responsiveSvg: true,
+      getId: f => f.properties.RS,
+      hilightNode: () => {},
+      color: [COLORS['11'], COLORS['12'], COLORS['13'], COLORS['23'], COLORS['33']]
+    }).render()
+
+    if (legend) {
+      sMap.legend({
+        element: `#${cssNamespace}__legend--${id}`,
+        itemTemplate: `<li><span style="background-color:{color}"></span>{label}&nbsp;€</li>`
+      })
+    }
+  }
+
+  renderMap(2012)
+  renderMap(2016, false)
+
+}
