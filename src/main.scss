@@ -122,20 +122,6 @@ $screen-lg: 1200px;
     }
   }
 
-  &__legend.--alt {
-    position: absolute;
-    top: -60px;
-    left: -120px;
-
-    > img {
-      display: block;
-      width: 350px;
-      margin: 0 auto;
-
-    }
-
-  }
-
   &__selector {
     position: relative;
 
