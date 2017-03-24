@@ -1,3 +1,7 @@
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
 .cor-viz {
   font-size: 14px;
   margin-top: 10px;
@@ -101,8 +105,21 @@
 
   }
 
-  &__figcaption-wrapper {
-    top: 90px;
+  &__bivariate-legend {
+    display: block;
+    width: 280px;
+    margin: 0 auto;
+
+    @media (min-width: $screen-md) {
+      position: absolute;
+      top: 440px;
+      left: 420px;
+    }
+
+    @media (min-width: $screen-lg) {
+      top: 460px;
+      left: 480px;
+    }
   }
 
   &__legend.--alt {
@@ -121,7 +138,6 @@
 
   &__selector {
     position: relative;
-    margin-top: 90px;
 
     select {
       background: white;
@@ -134,14 +150,23 @@
       option {
         font-size: 14px;
         padding: 0px;
-
       }
-
     }
+  }
 
+  &__infobox-wrapper {
+    margin-top: 3px;
+
+    &.-hidden {
+      display: block;
+    }
   }
 
   &__infobox {
+
+    &.-empty {
+      display: block;
+    }
 
     dt {
       padding-top: .7em;
