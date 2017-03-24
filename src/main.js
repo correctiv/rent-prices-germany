@@ -86,27 +86,28 @@ window.renderRentMap = id => {
   const renderTimeline = d => {
 
     timeLineEl.selectAll('*').remove()
-    wrapperEl.classed('-hidden', false)
+    // wrapperEl.classed('-hidden', false)
 
     const data = [
       YEARS,
       YEARS.map(y => Number(d[y]))
     ]
 
-    const T = d3.playbooks.timeLineChart({
+    d3.playbooks.timeLineChart({
       data,
       color: COLORS[d.value]
     }).render()
 
   }
 
-  const unHilight = () => {
-    timeLineEl.selectAll('*').remove()
-    wrapperEl.classed('-hidden', true)
-  }
+  // const unHilight = () => {
+  //   timeLineEl.selectAll('*').remove()
+  //   wrapperEl.classed('-hidden', true)
+  // }
 
   M.control().on(riot.EVT.updateInfobox, d => renderTimeline(d))
-  M.control().on(riot.EVT.emptyInfobox, () => unHilight())
+  // M.control().on(riot.EVT.emptyInfobox, () => unHilight())
+
 }
 
 
@@ -156,8 +157,12 @@ window.renderScatter = id => {
     .infobox({
       element: `#${cssNamespace}__infobox--${id}`,
       template: `
-        <p><strong>Miete 2016</strong><br>{rent_median} € / m²</p>
-        <p><strong>Anstieg seit 2012</strong><br>{percent_change} %</p>
+        <dl>
+          <dt>{rent_median} € / m²</dt>
+          <dd>Miete 2016</dd>
+          <dt>{percent_change} %</dt>
+          <dd>Anstieg seit 2012</dd>
+        </dl>
       `
     })
 

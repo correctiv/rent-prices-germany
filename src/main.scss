@@ -141,22 +141,7 @@
 
   }
 
-  &__infobox-wrapper {
-    margin-top: 3px;
-
-    &.-hidden {
-      visibility: hidden;
-    }
-
-  }
-
   &__infobox {
-
-    &.-empty {
-
-      visibility: hidden;
-
-    }
 
     dt {
       padding-top: .7em;
@@ -196,31 +181,6 @@
       line-height: 30px;
 
     }
-
-  }
-
-  // FIXME
-  &__container--scatter {
-
-    .cor-viz-rents__infobox {
-
-      border: 1px solid gray;
-      margin-top: 3px;
-      padding: 9px;
-
-      &.-empty {
-
-        visibility: hidden;
-
-      }
-
-    }
-
-    // .cor-viz-rents__svg {
-
-    //   margin: 0 auto;
-
-    // }
 
   }
 
