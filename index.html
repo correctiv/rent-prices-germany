@@ -22,14 +22,18 @@
 
           <h3>Aktuelle Mietpreise und ihre Entwicklung seit 2012</h3>
 
-          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
-            <div class="cor-viz cor-viz-rents__container figure__container">
-              <img class="cor-viz-rents__bivariate-legend" src="./legend.svg">
-              <div class="cor-viz cor-viz-rents__map" id="cor-viz-rents__map--17"></div>
-              <figcaption class="cor-viz cor-viz-rents__figcaption-wrapper figure__caption">
-                <div class="cor-viz cor-viz-rents__selector" id="cor-viz-rents__selector--17"></div>
-                <div class="cor-viz cor-viz-rents__infobox" id="cor-viz-rents__infobox--17"></div>
-                <div class="cor-viz cor-viz-rents__timeline d3-playbooks" id="cor-viz-rents__timeline--17"></div>
+          <figure class="figure -paragraph-width">
+            <div class="figure__container">
+              <section class="cor-viz-rents__section">
+                <img class="cor-viz-rents__bivariate-legend" src="./legend.svg">
+                <div id="rents-map"></div>
+              </section>
+              <figcaption class="figure__caption">
+                <section class="cor-viz-rents__section">
+                  <div class="cor-viz-rents__selector" id="rents-map-selector"></div>
+                  <div class="cor-viz-rents__infobox" id="rents-map-infobox"></div>
+                  <div id="rents-map-timeline"></div>
+                </section>
               </figcaption>
             </div>
           </figure>
@@ -44,20 +48,22 @@
 
           <h3>Mietpreise und Einwohnerdichte</h3>
 
-          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
-            <div class="cor-viz cor-viz-rents__container--scatter figure__container">
-              <div class="cor-viz cor-viz-rents__scatter d3-playbooks" id="cor-viz-rents__scatter--42"></div>
-              <figcaption class="cor-viz cor-viz-rents__figcaption-wrapper figure__caption">
-                <div class="figure__title"><p>Einwohner</p></div>
-                <div class="cor-viz cor-viz-rents__legend" id="cor-viz-rents__legend--42"></div>
-                <div class="cor-viz cor-viz-rents__selector" id="cor-viz-rents__selector--42"></div>
-                <div class="cor-viz cor-viz-rents__infobox" id="cor-viz-rents__infobox--42"></div>
-                <div class="figure__credits">
-                  <p><strong>Daten:</strong> <a href="">Data Source</a></p>
-                </div>
+          <figure class="figure -paragraph-width">
+            <div class="figure__container">
+              <section class="cor-viz-rents__section">
+                <div id="scatter-plot"></div>
+              </section>
+              <figcaption class="figure__caption">
+                <section class="cor-viz-rents__section">
+                  <div class="figure__title"><p>Einwohner</p></div>
+                  <div class="cor-viz-rents__legend" id="scatter-plot-legend"></div>
+                  <div class="cor-viz-rents__selector" id="scatter-plot-selector"></div>
+                  <div class="cor-viz-rents__infobox" id="scatter-plot-infobox"></div>
+                </section>
               </figcaption>
             </div>
           </figure>
+          <p class="cor-viz-rents__credits"><strong>Daten:</strong> <a href="">Data Source</a></p>
 
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -68,21 +74,21 @@
 
           <h3>Vergleich Ruhrgebiet und Region um München</h3>
 
-          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
-            <div class="cor-viz cor-viz-rents__container--comparison figure__container">
-              <div class="cor-viz cor-viz-rents__comparison d3-playbooks" id="cor-viz-rents__comparison-ruhr--1337">
-                <strong>Ruhrgebiet</strong>
-              </div>
-              <div class="cor-viz cor-viz-rents__comparison d3-playbooks" id="cor-viz-rents__comparison-muc--1337">
-                <strong>Region um München</strong>
-              </div>
-              <div class="figure__credits">
-                <p><strong>Ruhrgebiet:</strong> Herne, Oberhausen, Essen, Gelsenkirchen, Duisburg, Bochum, Dortmund</p>
-                <p><strong>Region um München:</strong> München, Dachau, Ebersberg, Fürstenfeldbruck, München (Kreis), Starnberg</p>
-                <p><strong>Daten:</strong> <a href="">Data Source</a></p>
-              </div>
+          <figure class="figure -paragraph-width">
+            <div class="figure__container">
+              <section class="cor-viz-rents__section cor-viz-rents__section--small-multiples">
+                <div class="cor-viz-rents__chart" id="comparison-ruhr">
+                  <p class="cor-viz-rents__title">Ruhrgebiet</p>
+                </div>
+                <div class="cor-viz-rents__chart" id="comparison-muc">
+                  <p class="cor-viz-rents__title">Region um München</p>
+                </div>
+              </section>
             </div>
           </figure>
+          <p class="cor-viz-rents__annotation"><strong>Ruhrgebiet:</strong> Herne, Oberhausen, Essen, Gelsenkirchen, Duisburg, Bochum, Dortmund</p>
+          <p class="cor-viz-rents__annotation"><strong>Region um München:</strong> München, Dachau, Ebersberg, Fürstenfeldbruck, München (Kreis), Starnberg</p>
+          <p class="cor-viz-rents__credits"><strong>Daten:</strong> <a href="">Data Source</a></p>
 
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -94,23 +100,25 @@
 
           <h3>Mietpreisentwicklung von 2012 bis 2016</h3>
 
-          <figure class="cor-viz cor-viz-rents figure -paragraph-width">
-            <div class="cor-viz cor-viz-rents__container figure__container">
-              <div class="cor-viz cor-viz-rents__sm-maps d3-playbooks" id="cor-viz-rents__sm-map-2012--99">
-                <strong>2012</strong>
-              </div>
-              <div class="cor-viz cor-viz-rents__sm-maps d3-playbooks" id="cor-viz-rents__sm-map-2016--99">
-                <strong>2016</strong>
-              </div>
-              <figcaption class="cor-viz cor-viz-rents__figcaption-wrapper figure__caption">
-                <div class="figure__title"><p>Mietpreis pro&nbsp;m²</p></div>
-                <div class="cor-viz cor-viz-rents__legend" id="cor-viz-rents__legend--99"></div>
-                <div class="figure__credits">
-                  <p><strong>Daten:</strong> <a href="">Data Source</a></p>
+          <figure class="figure -paragraph-width">
+            <div class="figure__container">
+              <section class="cor-viz-rents__section cor-viz-rents__section--small-multiples">
+                <div class="cor-viz-rents__map" id="comparison-map-2012">
+                  <p class="cor-viz-rents__title">2012</p>
                 </div>
+                <div class="cor-viz-rents__map" id="comparison-map-2016">
+                  <p class="cor-viz-rents__title">2016</p>
+                </div>
+              </section>
+              <figcaption class="figure__caption">
+                <section class="cor-viz-rents__section">
+                  <div class="figure__title"><p>Mietpreis pro&nbsp;m²</p></div>
+                  <div class="cor-viz-rents__legend" id="comparison-maps-legend"></div>
+                </section>
               </figcaption>
             </div>
           </figure>
+          <p class="cor-viz-rents__credits"><strong>Daten:</strong> <a href="">Data Source</a></p>
 
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -132,10 +140,10 @@
   <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="./cor-rent-vis.min.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    renderRentMap(17);
-    renderScatter(42);
-    renderComparison(1337);
-    renderSmMaps(99);
+    renderRentMap();
+    renderScatter();
+    renderComparisonLines();
+    renderComparisonMaps();
   </script>
 
 </body>

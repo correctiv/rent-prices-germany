@@ -20,6 +20,7 @@ const YEARS = [
 ]
 
 const cssNamespace = 'cor-viz-rents'
+d3.playbooks.defaults({cssNamespace})
 
 // initial hilight
 const initialHilight = (viz, name='Wolfsburg') => {
@@ -32,13 +33,13 @@ const initialHilight = (viz, name='Wolfsburg') => {
 }
 
 // bivariate map
-window.renderRentMap = id => {
+window.renderRentMap = () => {
 
   const M = d3.playbooks.choroplethMap({
     width: 600,  // german shape ratio
     height: 810,
-    elementId: `${cssNamespace}__map--${id}`,
-    cssNamespace,
+    cssNamespace,  // FIXME
+    elementId: 'rents-map',
     dataUrl: './data/map_data.csv',
     geoDataUrl: './data/landkreise_simplify200.topo.json',
     isTopojson: true,
@@ -48,11 +49,11 @@ window.renderRentMap = id => {
     color: d => COLORS[d]
   }).render()
     .selector({
-      element: `#${cssNamespace}__selector--${id}`,
+      element: '#rents-map-selector',
       getLabel: f => f.name
     })
     .infobox({
-      element: `#${cssNamespace}__infobox--${id}`,
+      element: '#rents-map-infobox',
       template: `
         <dl>
           <dt>{rent_median} € / m²</dt>
@@ -64,10 +65,12 @@ window.renderRentMap = id => {
     })
 
 
-  const timeLineElId = `${cssNamespace}__timeline--${id}`
+  // line chart in infobox
+  const timeLineElId = 'rents-map-timeline'
+  const timeLineEl = d3.select(`#${timeLineElId}`)
+
   d3.playbooks.timeLineChart.defaults({
     elementId: timeLineElId,
-    cssNamespace: `${cssNamespace}-timeline`,
     width: 150,
     height: 200,
     curve: d3.curveStep,
@@ -89,13 +92,9 @@ window.renderRentMap = id => {
     }
   })
 
-  const wrapperEl = d3.select(`.${cssNamespace}__infobox-wrapper`)
-  const timeLineEl = d3.select(`#${timeLineElId}`)
-
   const renderTimeline = d => {
 
     timeLineEl.selectAll('*').remove()
-    // wrapperEl.classed('-hidden', false)
 
     const data = [
       YEARS,
@@ -109,26 +108,17 @@ window.renderRentMap = id => {
 
   }
 
-  // const unHilight = () => {
-  //   timeLineEl.selectAll('*').remove()
-  //   wrapperEl.classed('-hidden', true)
-  // }
-
   M.control().on(riot.EVT.updateInfobox, d => renderTimeline(d))
-  // M.control().on(riot.EVT.emptyInfobox, () => unHilight())
   initialHilight(M)
 
 }
 
 
-// scatter plot
-window.renderScatter = id => {
+// scatter-plot
+window.renderScatter = () => {
 
   const S = d3.playbooks.scatterChart({
-    cssNamespace,
-    // width: 1000,  // .-full-width ??
-    // height: 600,
-    elementId: `${cssNamespace}__scatter--${id}`,
+    elementId: 'scatter-plot',
     dataUrl: './data/scatter.csv',
     xCol: 'rent_median',
     yLabel: 'Einwohner pro m²',
@@ -160,12 +150,12 @@ window.renderScatter = id => {
   }).render()
 
     .selector({
-      element: `#${cssNamespace}__selector--${id}`,
+      element: '#scatter-plot-selector',
       getLabel: d => d.name
     })
 
     .infobox({
-      element: `#${cssNamespace}__infobox--${id}`,
+      element: '#scatter-plot-infobox',
       template: `
         <dl>
           <dt>{rent_median} € / m²</dt>
@@ -177,8 +167,8 @@ window.renderScatter = id => {
     })
 
     .legend({
-      element: `#${cssNamespace}__legend--${id}`,
-      wrapperTemplate: '<div class="cor-viz-rents__scatter-legend-list">{body}</div>',
+      element: '#scatter-plot-legend',
+      wrapperTemplate: '{body}',
       itemTemplate: `
         <div class="cor-viz-rents__scatter-legend-item">
           <svg width="{size}" height="{size}">
@@ -194,10 +184,9 @@ window.renderScatter = id => {
 
 
 // comparison charts
-window.renderComparison = id => {
+window.renderComparisonLines = () => {
 
   d3.playbooks.multiTimeLineChart.defaults({
-    cssNamespace: `${cssNamespace}-comparison`,
     width: 250,
     height: 300,
     xTicks: 3,
@@ -232,29 +221,30 @@ window.renderComparison = id => {
   })
 
   d3.playbooks.multiTimeLineChart({
-    elementId: `${cssNamespace}__comparison-ruhr--${id}`,
+    elementId: 'comparison-ruhr',
     yCols:  ['Herne', 'Oberhausen', 'Essen', 'Gelsenkirchen', 'Duisburg', 'Bochum', 'Dortmund'],
     color: COLORS[21]
   }).render()
 
   d3.playbooks.multiTimeLineChart({
-    elementId: `${cssNamespace}__comparison-muc--${id}`,
+    elementId: 'comparison-muc',
     yCols:  ['München', 'Dachau', 'Ebersberg', 'Fürstenfeldbruck', 'München (Kreis)', 'Starnberg'],
-    color: COLORS[23]
+    color: COLORS[23],
+    showYLabel: false
   }).render()
 
 }
 
 
 // small multiple maps
-window.renderSmMaps = id => {
+window.renderComparisonMaps = () => {
 
   const renderMap = (year, legend=true) => {
     const sMap = d3.playbooks.choroplethMap({
       width: 600,  // german shape ratio
       height: 810,
-      elementId: `${cssNamespace}__sm-map-${year}--${id}`,
-      cssNamespace,
+      cssNamespace,  // FIXME
+      elementId: `comparison-map-${year}`,
       yCol: year,
       yExtent: [5, 15],
       dataUrl: './data/map_data.csv',
@@ -269,7 +259,7 @@ window.renderSmMaps = id => {
 
     if (legend) {
       sMap.legend({
-        element: `#${cssNamespace}__legend--${id}`,
+        element: '#comparison-maps-legend',
         itemTemplate: `<li><span style="background-color:{color}"></span>{label}&nbsp;€</li>`
       })
     }

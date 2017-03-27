@@ -2,153 +2,34 @@ $screen-sm: 768px;
 $screen-md: 992px;
 $screen-lg: 1200px;
 
-.cor-viz {
-  font-size: 14px;
-  margin-top: 10px;
-  position: relative;
-
-  .axis, .label {
-
-    font-weight: normal;
-    font-size: 11px;
-
-  }
-
-  .figure {
-
-    &__credits {
-
-      margin-top: 14px;
-      color: #9c9c9c;
-      font-size: 14px;
-      line-height: 1.4;
-
-      &>p:first-of-type:before {
-        // remove icon
-        content: '';
-        padding: 0;
-      }
-
-    }
-
-  }
-
-}
 
 .cor-viz-rents {
 
-  &__svg {
+  // wrapper for inside <figure> and <figcaption>
+  &__section {
+    padding-top: 20px;
 
-    path.map__item {
+    &--small-multiples {
 
-      stroke: #fff;
-      stroke-width: 1;
-
-      &.-hilight {
-
-        stroke: gray;
-        stroke-width: 1;
-
-      }
-
-    }
-
-    circle {
-
-      fill-opacity: .8;
-      stroke-width: 1;
-      stroke-opacity: 1;
-      stroke: gray;
-
-      &.-hilight {
-
-        fill-opacity: 1;
-        stroke: #1a1a1a;
-        stroke-width: 2;
-
-      }
-
-    }
-
-  }
-
-  &-timeline, &-comparison {
-
-    &__svg {
-
-      path.line {
-
-        stroke-width: 2;
-
-      }
-
-      .y.axis, .x.axis {
-
-        .domain, .tick line {
-
-          stroke: #555;
-          stroke-width: 1.5;
-          // stroke-dasharray: 5, 3;
-
+      .cor-viz-rents__chart, .cor-viz-rents__map {
+        @media (min-width: $screen-md / 2) {
+          width: 50%;
+          float: left;
         }
-
-        // FIXME
-        // & > .tick:first-child {
-
-        //   display: none;
-
-        // }
-
       }
 
-    }
-
-  }
-
-  &__bivariate-legend {
-    display: block;
-    width: 280px;
-    margin: 0 auto;
-
-    @media (min-width: $screen-md) {
-      position: absolute;
-      top: 440px;
-      left: 420px;
-    }
-
-    @media (min-width: $screen-lg) {
-      top: 460px;
-      left: 480px;
-    }
-  }
-
-  &__selector {
-    position: relative;
-
-    select {
-      background: white;
-      margin: 0;
-      padding: 5px;
-      border: 1px solid gray;
-      display: block;
-      width: 100%;
-
-      option {
-        font-size: 14px;
-        padding: 0px;
+      // padding for single small svg map
+      // the "__wrapper" class comes from `d3-playbooks-maps`, sorry
+      .cor-viz-rents__map .cor-viz-rents__wrapper {
+        padding: 0 20px 0 20px;
       }
     }
   }
 
-  &__infobox-wrapper {
-    margin-top: 3px;
-
-    &.-hidden {
-      display: block;
-    }
-  }
-
+  // components
+  // selector style reset see below
   &__infobox {
+    padding-top: 10px;
 
     &.-empty {
       display: block;
@@ -168,103 +49,149 @@ $screen-lg: 1200px;
     }
   }
 
-  &__scatter-legend-item {
-
-    padding-top: 15px;
-
-    svg {
-
-      float: left;
-
-      circle {
-
-        fill-opacity: .8;
-        stroke-opacity: 1;
-        stroke: gray;
-
-      }
-
-    }
-
-    span {
-
-      margin-left: 10px;
-      line-height: 30px;
-
-    }
-
-  }
-
-  &__comparison, &__sm-maps {
-
-    @media (min-width: $screen-md / 2) {
-
-      width: 50%;
-      float: left;
-
-    }
-
-  }
-
-  &__sm-maps &__wrapper {
-
-    padding: 20px;
-
-  }
-
   &__legend {
 
     ul {
-
       padding: 0;
       margin: 0;
 
       li {
-
         list-style: none;
         padding-bottom: 0;
 
         @media (max-width: $screen-sm) {
-
           display: inline;
           margin-right: 20px;
-
         }
 
         span {
-
           display: inline-block;
           width: 8px;
           height: 8px;
           margin-right: 8px;
-
         }
-
       }
+    }
+  }
 
+  &__bivariate-legend {
+    display: block;
+    width: 280px;
+    margin: 0 auto;
+
+    @media (min-width: $screen-md) {
+      position: absolute;
+      top: 440px;
+      left: 420px;
     }
 
+    @media (min-width: $screen-lg) {
+      top: 460px;
+      left: 480px;
+    }
   }
 
-}
+  &__scatter-legend-item {
+    padding-top: 15px;
 
-.cor-viz-rents__credits {
-  position: relative;
-  top: -30px;
-  font-size: 15px;
-  clear: left;
+    svg {
+      float: left;
 
-  a {
-    border: none;
-    text-decoration: underline;
-    color: inherit;
+      circle {
+        fill-opacity: .8;
+        stroke-opacity: 1;
+        stroke: gray;
+      }
+    }
+
+    span {
+      margin-left: 10px;
+      line-height: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  &__credits, &__annotation {
+    color: #9c9c9c;
+    position: relative;
+    top: -30px;
+    font-size: 15px;
+    clear: left;
+
+    a {
+      border: none;
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+
+
+  // styling for concrete d3 stuff
+  &__svg {
+
+    .axis {
+      font-weight: normal;
+      font-size: 11px;
+
+      .domain, .tick line {
+        stroke: #555;
+        stroke-width: 1.5;
+      }
+
+      .label {
+        fill: #555;
+        font-weight: normal;
+        font-size: 11px;
+      }
+    }
+
+    path.map__item {
+      stroke: #fff;
+      stroke-width: 1;
+
+      &.-hilight {
+        stroke: gray;
+        stroke-width: 1;
+      }
+    }
+
+    path.line {
+      stroke-width: 2;
+      fill: none;
+    }
+
+    circle {
+      fill-opacity: .8;
+      stroke-width: 1;
+      stroke-opacity: 1;
+      stroke: gray;
+
+      &.-hilight {
+        fill-opacity: 1;
+        stroke: #1a1a1a;
+        stroke-width: 2;
+      }
+    }
   }
 }
+
+// explicit adjustments
+#rents-map-timeline {
+  margin-top: 10px;
+}
+
+#scatter-plot-selector {
+  margin-top: 25px;
+}
+
 
 .cor-viz-rents__selector {
-  position: relative;
   display: block;
-
+  position: relative;
 
   /*
    * Styling for `select` element, borrowed from:
