@@ -1,3 +1,23 @@
+window.renderRentViz = basePath => {
+
+  d3.json(`${basePath}/data/landkreise_simplify200.topo.json`, d => {
+    const geoData = topojson.feature(d, d.objects.landkreise_simplify200)
+
+    d3.csv(`${basePath}/data/map_data.csv`, d => {
+      const data = d
+
+      if (d3.select('#rents-map').node()) renderRentMap({geoData, data})
+      if (d3.select('#scatter-plot').node()) renderScatter(basePath)
+      if (d3.select('#comparison-ruhr').node()) renderComparisonLines(basePath)
+      if (d3.select('#comparison-map-2012')) renderComparisonMaps({geoData, data})
+
+    })
+
+  })
+
+}
+
+
 const COLORS = {
   '11': '#e8e6f2',
   // '11': '#d7d6e1', // FIXME ??
@@ -33,17 +53,15 @@ const initialHilight = (viz, name='Wolfsburg') => {
 }
 
 // bivariate map
-window.renderRentMap = () => {
+const renderRentMap = ({geoData, data}) => {
 
   const M = d3.playbooks.choroplethMap({
     width: 600,  // german shape ratio
     height: 810,
     cssNamespace,  // FIXME
     elementId: 'rents-map',
-    dataUrl: './data/map_data.csv',
-    geoDataUrl: './data/landkreise_simplify200.topo.json',
-    isTopojson: true,
-    topojsonLayerName: 'landkreise_simplify200',
+    data,
+    geoData,
     responsiveSvg: true,
     getId: f => f.properties.RS,
     color: d => COLORS[d]
@@ -115,11 +133,11 @@ window.renderRentMap = () => {
 
 
 // scatter-plot
-window.renderScatter = () => {
+const renderScatter = basePath => {
 
   const S = d3.playbooks.scatterChart({
     elementId: 'scatter-plot',
-    dataUrl: './data/scatter.csv',
+    dataUrl: `${basePath}/data/scatter.csv`,
     xCol: 'rent_median',
     yLabel: 'Einwohner pro m²',
     xLabel: 'Mittlerer Mietpreis in € pro m²',
@@ -184,7 +202,7 @@ window.renderScatter = () => {
 
 
 // comparison charts
-window.renderComparisonLines = () => {
+const renderComparisonLines = basePath => {
 
   d3.playbooks.multiTimeLineChart.defaults({
     width: 250,
@@ -196,7 +214,7 @@ window.renderComparisonLines = () => {
     showXLabel: false,
     curve: d3.curveStep,
     getYDomain: () => [0, 15],
-    dataUrl: './data/comparison.csv',
+    dataUrl: `${basePath}/data/comparison.csv`,
     // drawExtra: ({
     //   data,
     //   drawedSelection,
@@ -237,7 +255,7 @@ window.renderComparisonLines = () => {
 
 
 // small multiple maps
-window.renderComparisonMaps = () => {
+const renderComparisonMaps = ({geoData, data}) => {
 
   const renderMap = (year, legend=true) => {
     const sMap = d3.playbooks.choroplethMap({
@@ -247,10 +265,8 @@ window.renderComparisonMaps = () => {
       elementId: `comparison-map-${year}`,
       yCol: year,
       yExtent: [5, 15],
-      dataUrl: './data/map_data.csv',
-      geoDataUrl: './data/landkreise_simplify200.topo.json',
-      isTopojson: true,
-      topojsonLayerName: 'landkreise_simplify200',
+      data,
+      geoData,
       responsiveSvg: true,
       getId: f => f.properties.RS,
       hilightNode: () => {},
