@@ -139,8 +139,8 @@ const renderScatter = basePath => {
     elementId: 'scatter-plot',
     dataUrl: `${basePath}/data/scatter.csv`,
     xCol: 'rent_median',
-    yLabel: 'Einwohner pro m²',
-    xLabel: 'Mittlerer Mietpreis in € pro m²',
+    yLabel: 'Einwohner pro km²',
+    xLabel: 'Mittlerer Mietpreis pro m²',
     yCol: 'density',
     getXDomain: () => [4, 16],
     sizeCol: 'size',
@@ -148,6 +148,7 @@ const renderScatter = basePath => {
     groupCol: 'color',
     color: COLORS,
     yTicks: 5,
+    xTickFormat: d => `${d} €`,
     yTickFormat: d => d > 0 ? d/1000 + ' T.' : '',
     getLegendItems: ({data}) => {
       const extent = d3.extent(data, d => Number(d['2016pop']))
