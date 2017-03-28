@@ -138,22 +138,22 @@ const renderScatter = basePath => {
   const S = d3.playbooks.scatterChart({
     elementId: 'scatter-plot',
     dataUrl: `${basePath}/data/scatter.csv`,
-    xCol: 'rent_median',
-    yLabel: 'Einwohner pro km²',
-    xLabel: 'Mittlerer Mietpreis pro m²',
-    yCol: 'density',
-    getXDomain: () => [4, 16],
+    yCol: 'rent_median',
+    xLabel: 'Einwohner pro km²',
+    yLabel: 'Mittlerer Mietpreis pro m²',
+    xCol: 'density',
+    getYDomain: () => [4, 16],
     sizeCol: 'size',
     sizeRange: [4, 20],
     groupCol: 'color',
     color: COLORS,
     yTicks: 5,
-    xTickFormat: d => `${d} €`,
-    yTickFormat: d => d > 0 ? d/1000 + ' T.' : '',
+    yTickFormat: d => `${d} €`,
+    // xTickFormat: d => d > 0 ? d : '',
     getLegendItems: ({data}) => {
       const extent = d3.extent(data, d => Number(d['2016pop']))
       const getSize = d3.scaleLinear().domain(extent).range([4, 20])
-      const population = [100000, 500000, 2000000]
+      const population = [100000, 2000000]
       return population.reverse().map(p => {
         const radius = getSize(p)
         const label = p < 1000000 ? `${p / 1000} T.` : `${p / 1000000} Mio.`
