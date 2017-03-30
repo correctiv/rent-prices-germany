@@ -271,12 +271,40 @@ const renderComparisonMaps = ({geoData, data}) => {
       responsiveSvg: true,
       getId: f => f.properties.RS,
       hilightNode: () => {},
-      color: [COLORS['11'], COLORS['12'], COLORS['13'], COLORS['23'], COLORS['33']]
+      color: [COLORS['11'], COLORS['12'], COLORS['13'], COLORS['23'], COLORS['33']],
+      drawExtra: ({
+        g,
+        data,
+        path
+      }) => {
+        const wolfsburg = data.find(d => d.name === 'Wolfsburg')
+        const [x, y] = path.centroid(wolfsburg)
+        const lGroup = g.append('g')
+        // lGroup.append('text')
+        //     .attr('transform', `translate(${x}, ${y-30})`)
+        //     .attr('class', 'label--wb')
+        //     .attr('dx', '.5em')
+        //     .style('fill', 'black')
+        //     .style('font-size', '30px')
+        //     .text('Wolfsburg')
+        lGroup.append('circle')
+            .attr('r', 20)
+            .style('fill-opacity', 0)
+            .style('stroke', 'black')
+            .attr('cx', x)
+            .attr('cy', y)
+      }
     }).render()
 
     if (legend) {
       sMap.legend({
         element: '#comparison-maps-legend',
+        wrapperTemplate: `
+          <ul class="${cssNamespace}__legend-list">
+            {body}
+            <li class="-wb"><svg width="12" height="12"><circle r="5" cx="6" cy="6" fill-opacity="0" stroke="gray" /></svg> Wolfsburg</li>
+          </ul>
+        `,
         itemTemplate: `<li><span style="background-color:{color}"></span>{label}&nbsp;€</li>`
       })
     }

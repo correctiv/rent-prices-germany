@@ -70,6 +70,12 @@ $screen-lg: 1200px;
           height: 8px;
           margin-right: 8px;
         }
+
+        &.-wb {
+          display: block;
+          padding-top: 15px;
+        }
+
       }
     }
   }
