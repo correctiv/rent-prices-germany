@@ -183,6 +183,37 @@ $screen-lg: 1200px;
       }
     }
   }
+
+
+  // embed for cooperation partners
+  // correctiv.css is not present there
+  &__embed {
+    max-width: 750px;
+    position: relative;
+
+    &-map {
+      @media (min-width: $screen-sm) {
+        margin-right: 220px;
+      }
+
+    }
+
+    &-infobox {
+      @media (min-width: $screen-sm) {
+        position: absolute;
+        width: 200px;
+        top: 0;
+        right: 0;
+      }
+
+      dd {
+        // FIXME
+        margin-left: 0px;
+      }
+
+    }
+
+  }
 }
 
 // explicit adjustments

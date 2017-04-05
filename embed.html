@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d3-playbooks-maps</title>
+  <link rel="stylesheet" href="./lib/correctiv.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="./cor-viz-rents.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <style type="text/css" media="screen">
+    .viz-info__main {
+      padding: 20px;
+    }
+    .viz-info__section {
+      border-top: 1px solid gray;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="viz-info__main">
+
+    <p><a href="https://correctiv.org">correctiv.org</a></p>
+    <h1>Vermieter müsste man sein: In ganz Deutschland klettern die Mietpreise rasant</h1>
+    <p>Hinweise zur Nutzung unserer Mietpreis-Grafiken.<br>
+      Kontakt: <a href="mailto:simon.woerpel@correctiv.org">simon.woerpel@correctiv.org</a></p>
+    <p><em>Credits:</em> "Grafik: Simon Wörpel, correctiv.org"</p>
+    <ul>
+      <li><a href="#map">Interaktive Mietpreis-Karte</a></li>
+      <li><a href="#ruhr-muc">Vergleich Ruhrgebiet und Region München</a></li>
+      <li><a href="#years">Entwicklung 2012 bis 2016</a></li>
+    </ul>
+    <p><strong>Wichtig:</strong> Wenn Sie die Daten und die Recherche veröffentlichen, achten Sie bitte darauf, die im Text genannte Quelle
+      der Daten (Forschungsinstitut Empirica) zu nennen, denn nur unter dieser Bedingung hat Empirica uns die
+      ganzen Daten zur Auswertung zur Verfügung gestellt.</p>
+    <p><strong>SPERRFRIST</strong> Freitag, 7.4.2017, 18.00 Uhr (online) und Samstag, 8.4. für Print.</p>
+
+    <section class="viz-info__section">
+      <h2 id="map">Interaktive Mietpreis-Karte</h2>
+      <p>Sie können unsere interaktive Karte mittels eines <code>&lt;iframe&gt;</code>-Elements in Ihre Artikel einbinden. Nutzen Sie dazu dieses Beispiel:</p>
+      <pre><code>
+&lt;iframe width=&quot;750&quot; height=&quot;736&quot; src=&quot;<a href="https://correctiv.github.io/rent-prices-germany/rents-map-iframe.html">https://correctiv.github.io/rent-prices-germany/rents-map-iframe.html</a>&quot;&gt;&lt;/iframe&gt;
+          </pre></code>
+      <p>Die Karte passt sich an die Breite des iFrames an, ist aber nie breiter als 750 Pixel (inklusive Legende & Infobox rechts). Zudem wird für kleinere Screens (Smartphones, Tablets) eine mobil-optimierte Version angezeigt.</p>
+
+      <iframe width="750" height="736" src="./rents-map-iframe.html"></iframe>
+    </section>
+
+    <section class="viz-info__section">
+      <h2 id="ruhr-muc">Vergleich Ruhrgebiet und Region um München</h2>
+      <p>Nutzen Sie diese Grafik als Bild: <a href="https://correctiv.github.io/rent-prices-germany/img/correctiv-rents__ruhr-muc.png">https://correctiv.github.io/rent-prices-germany/img/correctiv-rents__ruhr-muc.png</a></p>
+      <img src="./img/correctiv-rents__ruhr-muc.png">
+
+      <p><strong>Ruhrgebiet:</strong> Herne, Oberhausen, Essen, Gelsenkirchen, Duisburg, Bochum, Dortmund</p>
+      <p><strong>Region um München:</strong> München, Dachau, Ebersberg, Fürstenfeldbruck, München (Kreis), Starnberg</p>
+    </section>
+
+
+    <section class="viz-info__section">
+      <h2 id="years">Mietpreisentwicklung von 2012 bis 2016</h2>
+      <p>Nutzen Sie diese Grafik als Bild: <a href="https://correctiv.github.io/rent-prices-germany/img/correctiv-rents__years.png">https://correctiv.github.io/rent-prices-germany/img/correctiv-rents__years.png</a></p>
+      <img src="./img/correctiv-rents__years.png">
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ window.renderRentViz = basePath => {
       if (d3.select('#rents-map').node()) renderRentMap({geoData, data})
       if (d3.select('#scatter-plot').node()) renderScatter(basePath)
       if (d3.select('#comparison-ruhr').node()) renderComparisonLines(basePath)
-      if (d3.select('#comparison-map-2012')) renderComparisonMaps({geoData, data})
+      if (d3.select('#comparison-map-2012').node()) renderComparisonMaps({geoData, data})
 
     })
 

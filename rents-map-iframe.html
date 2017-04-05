@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>correctiv mietpreise karte</title>
+  <link rel="stylesheet" href="./cor-viz-rents.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+
+  <main class="cor-viz-rents__embed">
+    <section class="cor-viz-rents__embed-map">
+      <img class="cor-viz-rents__bivariate-legend" src="./legend.svg">
+      <div id="rents-map"></div>
+    </section>
+    <section class="cor-viz-rents__embed-infobox">
+      <div class="cor-viz-rents__selector" id="rents-map-selector"></div>
+      <div class="cor-viz-rents__infobox" id="rents-map-infobox"></div>
+      <div id="rents-map-timeline"></div>
+    </section>
+  </main>
+
+  <script src="./lib/d3.v4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/topojson.v2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/riot.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.base.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.maps.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./cor-viz-rents.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    renderRentViz('./');
+  </script>
+
+</body>
+</html>
